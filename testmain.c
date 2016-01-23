@@ -51,10 +51,14 @@ int main (void)
 	testQthValidity( "AF2NDC"      ,  6, EDOM, 0,  &takenTests, &passedTests );
 	testQthValidity( "AF238C"      ,  6, EDOM, 0,  &takenTests, &passedTests );
 	testQthValidity( "AF23D4"      ,  6, EDOM, 0,  &takenTests, &passedTests );
+	testQthValidity( "AF23YC"      ,  6, EDOM, 0,  &takenTests, &passedTests );
+	testQthValidity( "AF23DZ"      ,  6, EDOM, 0,  &takenTests, &passedTests );
 	testQthValidity( "AF23DCU1eb"  , 10, EDOM, 0,  &takenTests, &passedTests );
 	testQthValidity( "AF23DC9peb"  , 10, EDOM, 0,  &takenTests, &passedTests );
 	testQthValidity( "AF23DC913b"  , 10, EDOM, 0,  &takenTests, &passedTests );
 	testQthValidity( "AF23DC91e7"  , 10, EDOM, 0,  &takenTests, &passedTests );
+	testQthValidity( "AF23DC91zb"  , 10, EDOM, 0,  &takenTests, &passedTests );
+	testQthValidity( "AF23DC91ey"  , 10, EDOM, 0,  &takenTests, &passedTests );
 	testQthValidity( "AF23DC91ebr5", 12, EDOM, 0,  &takenTests, &passedTests );
 	testQthValidity( "AF23DC91eb9c", 12, EDOM, 0,  &takenTests, &passedTests );
 
