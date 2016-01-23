@@ -12,7 +12,7 @@ libqth is a tiny library built to convert QTH Locators into coordinates, and bac
 
 ## USAGE
 
-You can use the library by compiling it, or you can compile the tests suite as follow:
+You can use the library by compiling it, or you can run the test suite by executing the following commands:
 
 ```bash
 gcc -lm -Wall -Wpedantic -Wformat -Wformat-security -pie -fPIE qth.c testmain.c -o tests-libqth
@@ -20,7 +20,7 @@ chmod +x ./tests-libqth
 ./tests-libqth
 ```
 
-The test suite return value is 0 if all tests passed, and -1 if at least 1 test failed.
+The test suite return value is 0 if all tests passed, and 1 if at least 1 test failed.
 
 ## DETAILS ON QTH PRECISION
 
