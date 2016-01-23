@@ -12,12 +12,10 @@ libqth is a tiny library built to convert QTH Locators into coordinates, and bac
 
 ## USAGE
 
-You can use the library by compiling it, or you can run the test suite by executing the following commands:
+You can use the library by compiling it using make, or you can run the test suite by executing the following command:
 
 ```bash
-gcc -lm -Wall -Wpedantic -Wformat -Wformat-security -pie -fPIE qth.c testmain.c -o tests-libqth
-chmod +x ./tests-libqth
-./tests-libqth
+make testlib
 ```
 
 The test suite return value is 0 if all tests passed, and 1 if at least 1 test failed.
