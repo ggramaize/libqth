@@ -7,7 +7,7 @@ libqth is a tiny library built to convert QTH Locators into coordinates, and bac
 
 ## SYSTEM REQUIREMENTS
 
- - An ANSI C89 or a C++ building environment.
+ - An ISO C99, an ISO C11 or a C++ building environment.
  - *nix-like operating system (I don't have a windows dev environment to check the library on MS).
 
 ## USAGE
