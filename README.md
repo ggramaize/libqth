@@ -34,6 +34,6 @@ The pair of chars are named as follow:
  * Extended pair 1 (precision 4): A 24x24 grid covering the content of an extended subsquare.
  * Extended pair 2 (precision 5): A 10x10 grid covering the content of an extended pair 1.
 
-The notion of precision evoked in this library corresponds to the values defined in the preceding listing.
+The precision refers to the aforementioned listing. The values are completely arbitrary, and intended for the function inner behaviour.
 
-The most popular precision used by amateur radio operators is precision 2 (Field, square and subsquare).
+The most popular precision used by amateur radio operators is 2 (Field, square and subsquare).
