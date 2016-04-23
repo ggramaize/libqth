@@ -1,5 +1,13 @@
 from distutils.core import setup, Extension
 
-setup(
-    ext_modules=[Extension("_libqth", sources=["cobra.c", "qth.c"], extra_compile_args=["-g", "-ggdb3", "-fno-inline"])],
+libqth = Extension(
+	"_libqth",
+	sources=["cobra.c", "qth.c"])
+
+setup (
+	name = 'libqth',
+	version = '1.0',
+	description = 'libqth python module',
+	url = 'https://github.com/ggramaize/libqth',
+	ext_modules = [libqth]
 )

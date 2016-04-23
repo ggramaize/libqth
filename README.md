@@ -10,6 +10,18 @@ libqth is a tiny library built to convert QTH Locators into coordinates, and bac
  - An ISO C99, an ISO C11 or a C++ building environment.
  - *nix-like operating system (I don't have a windows dev environment to check the library on MS).
 
+## PYTHON MODULE
+
+Works with Python 2.x and 3.x. Build inplace with:
+
+```python setup.py build_ext --inplace```
+
+Or install using:
+
+```python setup.py install```
+
+Use ```python``` or ```python3``` as you need.
+
 ## USAGE
 
 You can use the library by compiling it using make, or you can run the test suite by executing the following command:
