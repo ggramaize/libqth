@@ -68,8 +68,7 @@ static PyObject *qth_to_coords_libqth(PyObject *self, PyObject *args) {
     int retcode = qth_to_coords(qth, qthStringSize, &latitude, &longitude, &precision);
 
     if (retcode != 0) {
-    	PyErr_SetString(PyExc_RuntimeError, "qth_to_coords returned EDOM");
-    	return NULL;
+    	Py_RETURN_FALSE;
     }
 
     /* Build the output dict */
@@ -100,8 +99,7 @@ static PyObject *coords_to_qth_libqth(PyObject *self, PyObject *args) {
     int retcode = coords_to_qth(latitude, longitude, precision, qth);
 
     if (retcode == EDOM) {
-    	PyErr_SetString(PyExc_RuntimeError, "coords_to_qth returned EDOM");
-    	return NULL;
+    	Py_RETURN_FALSE;
     }
 
     /* Build the output dict */
