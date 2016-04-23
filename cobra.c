@@ -8,13 +8,16 @@
 static char module_docstring[] = "This module provides an interface to the libqth using C.";
 static char qth_to_coords_docstring[] = "Converts a C string QTH locator to floating point coordinates\r\nqth_to_coords(qth, precision)";
 static char coords_to_qth_docstring[] = "Converts floating point coordinates to a QTH locator.\r\ncoords_to_qth(lat, lon, precision)";
+static char is_valid_qth_docstring[] = "Validates that a C string is a valid QTH\r\ncoords_to_qth(qth, precision)";
 
 static PyObject *qth_to_coords_libqth(PyObject *self, PyObject *args);
 static PyObject *coords_to_qth_libqth(PyObject *self, PyObject *args);
+static PyObject *is_valid_qth_libqth(PyObject *self, PyObject *args);
 
 static PyMethodDef module_methods[] = {
     {"qth_to_coords", qth_to_coords_libqth, METH_VARARGS, qth_to_coords_docstring},
     {"coords_to_qth", coords_to_qth_libqth, METH_VARARGS, coords_to_qth_docstring},
+    {"is_valid_qth", is_valid_qth_libqth, METH_VARARGS, is_valid_qth_docstring},
     {NULL, NULL, 0, NULL}
 };
 
@@ -109,4 +112,25 @@ static PyObject *coords_to_qth_libqth(PyObject *self, PyObject *args) {
     	"longitude", longitude);
 
     return qthDict;
+}
+
+// int is_valid_qth( const char *qthToTest, size_t qthStringSize, size_t *precision);
+static PyObject *is_valid_qth_libqth(PyObject *self, PyObject *args) {
+	char *qth;
+    
+    size_t precision = 0;
+
+    /* Parse the input tuple */
+    if (!PyArg_ParseTuple(args, "sn", &qth, &precision))
+        return NULL;
+
+    size_t qthStringSize = strlen(qth);
+
+    /* Call the external C function to compute the chi-squared. */
+    int retcode = is_valid_qth(qth, qthStringSize, &precision);
+
+    if (retcode == EDOM)
+    	Py_RETURN_FALSE;
+    else
+    	Py_RETURN_TRUE;
 }
