@@ -22,6 +22,11 @@ Or install using:
 
 Use ```python``` or ```python3``` as you need.
 
+### Difference in Python module from lib
+
+Where the lib returns EDOM, the python module returns False, or True for the check QTH.
+If no error, a dict with infos is returned.
+
 ## USAGE
 
 You can use the library by compiling it using make, or you can run the test suite by executing the following command:
