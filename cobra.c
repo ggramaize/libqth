@@ -64,7 +64,7 @@ static PyObject *qth_to_coords_libqth(PyObject *self, PyObject *args) {
 
     size_t qthStringSize = strlen(qth);
 
-    /* Call the external C function to compute the chi-squared. */
+    /* Call the external C function to compute the coordinates. */
     int retcode = qth_to_coords(qth, qthStringSize, &latitude, &longitude, &precision);
 
     if (retcode != 0) {
@@ -95,7 +95,7 @@ static PyObject *coords_to_qth_libqth(PyObject *self, PyObject *args) {
     if (!PyArg_ParseTuple(args, "ddn", &latitude, &longitude, &precision))
         return NULL;
 
-    /* Call the external C function to compute the chi-squared. */
+    /* Call the external C function to compute the QTH locator. */
     int retcode = coords_to_qth(latitude, longitude, precision, qth);
 
     if (retcode == EDOM) {
@@ -124,7 +124,7 @@ static PyObject *is_valid_qth_libqth(PyObject *self, PyObject *args) {
 
     size_t qthStringSize = strlen(qth);
 
-    /* Call the external C function to compute the chi-squared. */
+    /* Call the external C function to check the QTH locator validity. */
     int retcode = is_valid_qth(qth, qthStringSize, &precision);
 
     if (retcode == EDOM)
