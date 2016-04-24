@@ -1,4 +1,4 @@
-import _libqth
+import libqth
 
 EDOM = False
 
@@ -23,14 +23,14 @@ class tests:
 		self.failed = 0
 
 	def testQthValidity(self, _qth, _size, _errcode_wanted, _precision):
-		_retcode = _libqth.is_valid_qth(_qth, _precision)
+		_retcode = libqth.is_valid_qth(_qth, _precision)
 		if _retcode == _errcode_wanted:
 			self.done+=1
 		else:
 			self.failed+=1
 
 	def checkQthToCoords(self, _qth, _size, _expectPrecision, _expectLat, _expectLng, _bias):
-		_ret = _libqth.qth_to_coords(_qth, _size)
+		_ret = libqth.qth_to_coords(_qth, _size)
 		if not _ret:
 			self.failed += 1
 			return
@@ -47,7 +47,7 @@ class tests:
 		self.done += 1
 
 	def inCheckCoordsToQth(self, _lat, _lng):
-		_ret = _libqth.coords_to_qth(_lat, _lng, 5)
+		_ret = libqth.coords_to_qth(_lat, _lng, 5)
 		if _lng < -180.0 or _lng > 180.0 or _lat < -90.0 or _lat > 90.0:
 			if _ret:
 				self.failed += 1
@@ -58,7 +58,7 @@ class tests:
 		self.done += 1
 
 	def checkCoordsToQth(self, _lat, _lng, _expectPrecision, _expectQth, _expectQthSize):
-		_ret = _libqth.coords_to_qth(_lat, _lng, _expectPrecision)
+		_ret = libqth.coords_to_qth(_lat, _lng, _expectPrecision)
 		if len(_ret['qth']) != _expectQthSize:
 			self.failed += 1
 			return
@@ -157,7 +157,7 @@ t.checkQthToCoords( "JJ"          ,  2, 0,   0.0,    0.0, _QTH_HGRID_STEP0/2)
 t.checkQthToCoords( "JN25EK"      ,  6, 2,  45.43894 ,    4.36844, _QTH_VGRID_STEP2/2)
 # Ueda-shi, Nagano-ken, Japan
 t.checkQthToCoords( "PM96CJ96RF"  , 10, 4,  36.401   ,  138.247667, _QTH_HGRID_STEP4/2)
-# Dunedin city, Otago, New Zealand   
+# Dunedin city, Otago, New Zealand
 t.checkQthToCoords( "RE54GC57EH"  , 10, 4, -45.886167,  170.543167, _QTH_HGRID_STEP4/2)
 # Fairbanks, AK, USA
 t.checkQthToCoords( "BP64DV54AA"  , 10, 4,  64.891667, -147.708333, _QTH_HGRID_STEP4/2)

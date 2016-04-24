@@ -22,11 +22,11 @@ static PyMethodDef module_methods[] = {
 };
 
 #if PY_MAJOR_VERSION >= 3
-PyMODINIT_FUNC PyInit__libqth(void) {
+PyMODINIT_FUNC PyInit_libqth(void) {
     PyObject *module;
     static struct PyModuleDef moduledef = {
         PyModuleDef_HEAD_INIT,
-        "_libqth",
+        "libqth",
         module_docstring,
         -1,
         module_methods,
@@ -41,9 +41,9 @@ PyMODINIT_FUNC PyInit__libqth(void) {
     return module;
 }
 #else
-PyMODINIT_FUNC init_libqth(void)
+PyMODINIT_FUNC initlibqth(void)
 {
-    PyObject *m = Py_InitModule3("_libqth", module_methods, module_docstring);
+    PyObject *m = Py_InitModule3("libqth", module_methods, module_docstring);
     if (m == NULL)
         return;
 }

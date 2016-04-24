@@ -1,7 +1,7 @@
 from distutils.core import setup, Extension
 
 libqth = Extension(
-	"_libqth",
+	"libqth",
 	sources=["cobra.c", "qth.c"])
 
 setup (
