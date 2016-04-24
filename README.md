@@ -10,6 +10,16 @@ libqth is a tiny library built to convert QTH Locators into coordinates, and bac
  - An ISO C99, an ISO C11 or a C++ building environment.
  - *nix-like operating system (I don't have a windows dev environment to check the library on MS).
 
+## USAGE
+
+You can use the library by compiling it using make, or you can run the test suite by executing the following command:
+
+```bash
+make testlib
+```
+
+The test suite return value is 0 if all tests passed, and 1 if at least 1 test failed.
+
 ## PYTHON MODULE
 
 Works with Python 2.x and 3.x. Build inplace with:
@@ -26,16 +36,6 @@ Use ```python``` or ```python3``` as you need.
 
 Where the lib returns EDOM, the python module returns False, or True for the check QTH.
 If no error, a dict with infos is returned.
-
-## USAGE
-
-You can use the library by compiling it using make, or you can run the test suite by executing the following command:
-
-```bash
-make testlib
-```
-
-The test suite return value is 0 if all tests passed, and 1 if at least 1 test failed.
 
 ## DETAILS ON QTH PRECISION
 
